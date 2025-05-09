@@ -1,10 +1,10 @@
-// import express from "express";
-// import { getMe, getViewedNotesByUser } from "../controllers/user.controller.js";
-// import { isAuthenticated } from "../middlewares/auth.middleware.js";
+import express from "express";
+import { getProfile, getViewedNotesByUser } from "../controllers/user.controller.js";
+import { isAuthenticated } from "../middleware/auth.middleware.js";
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.get("/profile", isAuthenticated, getProfile);
-// router.get("/viewed-notes", isAuthenticated, getViewedNotesByUser);
+router.get("/profile", isAuthenticated, getProfile);
+router.get("/viewed-notes", isAuthenticated, getViewedNotesByUser);
 
-// export default router;
+export default router;

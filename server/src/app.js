@@ -2,9 +2,9 @@ import express from "express"
 import errorHandler from "./middleware/errorHandler.js"
 import cors from "cors"
 import cookieparser from "cookie-parser"
-// import userRoutes from "./routes/user.routes.js"
+import userRoutes from "./routes/user.routes.js"
 import authRoutes from "./routes/auth.routes.js"
-// import noteRoutes from "./routes/note.routes.js"
+import noteRoutes from "./routes/note.routes.js"
 
 
 const app = express()
@@ -24,9 +24,9 @@ app.use(cookieparser())
 
 app.use("/api/auth",authRoutes)
 
-// app.use("/api/notes",noteRoutes)
+app.use("/api/notes",noteRoutes)
 
-// app.use("/api/users",userRoutes)
+app.use("/api/users",userRoutes)
 
 app.use((req, res, next) => {
     res.status(404).json({ success: false, message: "Route not found" })
