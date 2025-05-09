@@ -94,6 +94,13 @@ const noteSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+  reviewingBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    default: null
+},
+
 });
 
 export const Note = mongoose.model("Note", noteSchema);

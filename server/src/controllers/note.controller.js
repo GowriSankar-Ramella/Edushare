@@ -186,8 +186,11 @@ export const commentOnNote = AsyncHandler(async (req, res) => {
 
 export const getPendingNotes = AsyncHandler(async(req,res)=>{
 
-  const pendingNotes = await Note.find({status : "pending"})
-  .populate("uploadedBy","name email")
+ const pendingNotes = await Note.find({
+  status: "pending",
+  reviewingBy: null
+}).populate("uploadedBy", "name email");
+
 
   res.status(200).json(new ApiResponse(200,pendingNotes,"Notes that are needed to verified are fetched successfullly"))
 })
@@ -206,6 +209,18 @@ export const reviewNote = AsyncHandler(async (req, res) => {
   if (!note || note.status !== "pending") {
     throw new ApiError(404, "Pending note not found");
   }
+
+  // checking that this note is accessing by any other expert.
+  if (
+    note.reviewingBy &&
+    note.reviewingBy.toString() !== adminId.toString()
+  ) {
+    throw new ApiError(403, "This note is being reviewed by another expert");
+  }
+
+  //  Lock the note for this expert
+  note.reviewingBy = adminId;
+
 
   note.status = status;
   note.feedback = feedback;
