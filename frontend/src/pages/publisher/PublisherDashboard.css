@@ -1,0 +1,36 @@
+.dashboard-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.note-card {
+  background: #fff;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+
+
+.status-badge.pending {
+  background-color: rgb(234, 225, 209);
+  color: orange;
+}
+.status-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-badge.approved {
+  background-color: #e0ffe0;
+  color: green;
+}
+
+.status-badge.rejected {
+  background-color: #ffe0e0;
+  color: red;
+}

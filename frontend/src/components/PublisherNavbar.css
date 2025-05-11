@@ -1,0 +1,35 @@
+.publisher-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: teal;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.publisher-navbar .logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links li a,
+.nav-links li button {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-links li button:hover,
+.nav-links li a:hover {
+  text-decoration: underline;
+}

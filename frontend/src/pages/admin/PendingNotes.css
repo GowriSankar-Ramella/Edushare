@@ -1,0 +1,31 @@
+.pending-card {
+  background: #fff;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.review-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+textarea {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+button {
+  padding: 0.6rem;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}

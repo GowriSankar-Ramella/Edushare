@@ -1,0 +1,84 @@
+.homepage {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom right, #1a1a1a, #0f0f0f);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.homepage-overlay {
+  width: 100%;
+  max-width: 1200px;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.homepage-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #00ffc8;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  color: #dddddd;
+  margin-bottom: 3rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons button {
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.buttons button:first-child {
+  background-color: #00ffc8;
+  color: #000;
+}
+
+.buttons button:last-child {
+  background-color: transparent;
+  border: 2px solid #00ffc8;
+  color: #00ffc8;
+}
+
+.buttons button:hover {
+  opacity: 0.9;
+}

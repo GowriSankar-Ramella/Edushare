@@ -15,7 +15,7 @@ try {
             return null
         }
     
-        const response = await cloudinary.uploader.upload(localfilepath,{resource_type: "raw"})
+        const response = await cloudinary.uploader.upload(localfilepath,{resource_type: 'raw'})
     
         console.log("file uploaded to cludinary successfully : ",response)
     
