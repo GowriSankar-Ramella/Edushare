@@ -14,6 +14,7 @@ import PublisherProfile from "./pages/publisher/PublisherProfile";
 import AdminNoteDetail from "./pages/admin/AdminNoteDetail";
 import AdminProfile from "./pages/admin/AdminProfile";
 import HomePage from "./pages/auth/HomePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -21,19 +22,18 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/user/dashboard" element={<UserDashboard />} />
-      <Route path="/user/viewed-notes" element={<ViewedNotes />} />
-      <Route path="/user/profile" element={<UserProfile />} />
-      <Route path="/publisher/upload" element={<UploadNote />} />
-      <Route path="/publisher/profile" element={<PublisherProfile />} />
-      <Route path="/publisher/mynotes" element={<PublisherDashboard />} />
-      <Route path="/admin/reviewed" element={<AdminDashboard />} />
-      <Route path="/admin/pending" element={<PendingNotes />} />
-      <Route path="/admin/profile" element={<AdminProfile />} />
-      <Route path="/user/note/:id" element={<NoteDetail />} />
-      <Route path="/publisher/note/:id" element={<PublisherNoteDetail />} />
-      <Route path="/admin/note/:id" element={<AdminNoteDetail />} />
-
+      <Route path="/user/dashboard" element={<ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>} />
+      <Route path="/user/viewed-notes" element={<ProtectedRoute role="user"><ViewedNotes /></ProtectedRoute>} />
+      <Route path="/user/profile" element={<ProtectedRoute role="user"><UserProfile /></ProtectedRoute>} />
+      <Route path="/publisher/upload" element={<ProtectedRoute role="publisher"><UploadNote /></ProtectedRoute>} />
+      <Route path="/publisher/profile" element={<ProtectedRoute role="publisher"><PublisherProfile /></ProtectedRoute>} />
+      <Route path="/publisher/mynotes" element={<ProtectedRoute role="publisher"><PublisherDashboard /></ProtectedRoute>} />
+      <Route path="/admin/reviewed" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
+      <Route path="/admin/pending" element={<ProtectedRoute role="admin"><PendingNotes /></ProtectedRoute>} />
+      <Route path="/admin/profile" element={<ProtectedRoute role="admin"><AdminProfile /></ProtectedRoute>} />
+      <Route path="/user/note/:id" element={<ProtectedRoute role="user"><NoteDetail /></ProtectedRoute>} />
+      <Route path="/publisher/note/:id" element={<ProtectedRoute role="publisher"><PublisherNoteDetail /></ProtectedRoute>} />
+      <Route path="/admin/note/:id" element={<ProtectedRoute role="admin"><AdminNoteDetail /></ProtectedRoute>} />
 
     </Routes>
   );

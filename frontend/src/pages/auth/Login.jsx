@@ -2,16 +2,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../services/api";
 import "./Login.css";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/login", { email, password });
+      setUser(res.data.data.user);
       const role = res.data.data.user.role;
 
       if (role === "user") navigate("/user/dashboard");

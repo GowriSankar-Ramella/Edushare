@@ -36,7 +36,7 @@ const PublisherDashboard = () => {
               onClick={() => navigate(`/publisher/note/${note._id}`)}
               style={{ cursor: "pointer" }}
             >
-              <h3>{note.title}</h3>
+              <h3>Title: {note.title}</h3>
               <p><strong>Subject:</strong> {note.subject}</p>
               <p><strong>Topic:</strong> {note.topic}</p>
               <p>
