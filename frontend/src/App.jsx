@@ -31,7 +31,7 @@ function App() {
       <Route path="/admin/reviewed" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
       <Route path="/admin/pending" element={<ProtectedRoute role="admin"><PendingNotes /></ProtectedRoute>} />
       <Route path="/admin/profile" element={<ProtectedRoute role="admin"><AdminProfile /></ProtectedRoute>} />
-      <Route path="/user/note/:id" element={<ProtectedRoute role="user"><NoteDetail /></ProtectedRoute>} />
+      <Route path="/user/note/:id" element={<ProtectedRoute role="user"><NoteDetail /></ProtectedRoute>}/>
       <Route path="/publisher/note/:id" element={<ProtectedRoute role="publisher"><PublisherNoteDetail /></ProtectedRoute>} />
       <Route path="/admin/note/:id" element={<ProtectedRoute role="admin"><AdminNoteDetail /></ProtectedRoute>} />
 

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import API from "../../services/api";
 import "./ViewedNotes.css";
-import UserNavbar from "../../components/UserNavbar";
+import { useNavigate } from "react-router-dom";
 import UserLayout from "../../components/UserLayout";
 
 const ViewedNotes = () => {
   const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchViewedNotes = async () => {
@@ -33,7 +34,7 @@ const ViewedNotes = () => {
             <h3><strong>Title:</strong> {note.title}</h3>
             <p><strong>Subject:</strong> {note.subject}</p>
             <p><strong>Topic:</strong> {note.topic}</p>
-            <a href={`/user/note/${note._id}`}>View Again</a>
+           <button onClick={() => navigate(`/user/note/${note._id}`)}>View Details</button>
           </div>
         ))
       )}

@@ -2,10 +2,12 @@ import { useState } from "react";
 import API from "../../services/api";
 import "./UserDashboard.css";
 import UserLayout from "../../components/UserLayout";
+import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const [keyword, setKeyword] = useState("");
   const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
 
   const handleSearch = async () => {
     try {
@@ -39,7 +41,8 @@ const UserDashboard = () => {
               <h3>Tilte: {note.title}</h3>
               <p><strong>Subject:</strong> {note.subject}</p>
               <p><strong>Topic:</strong> {note.topic}</p>
-              <a href={`/user/note/${note._id}`}>View Details</a>
+              <button onClick={() => navigate(`/user/note/${note._id}`)}>View Details</button>
+                
             </div>
           ))
         )}
